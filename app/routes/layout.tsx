@@ -1,7 +1,9 @@
-import * as React from "react";
+import { Outlet } from "react-router";
 
-export const Layout: React.FC<{ children: React.ReactNode }> = ({
-    children,
-}) => {
-    return <div className="aaa">{children}</div>;
-};
+export default function Layout() {
+    return (
+        <div className="w-full h-full">
+            <Outlet />
+        </div>
+    );
+}
