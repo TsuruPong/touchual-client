@@ -1,9 +1,30 @@
-import type { LoaderFunction } from "react-router";
+import { useNavigate, type LoaderFunction } from "react-router";
+import { useKeyboardInput } from "~/hooks/useKeyboardInput";
+import { TopPresentation } from "./TopPresentation";
 
 export const loader: LoaderFunction = async () => {
     return null;
 };
 
 export default function Top() {
-    return <div>top</div>;
+    const nav = useNavigate();
+
+    useKeyboardInput((event: KeyboardEvent) => {
+        if (event.code == "Escape") {
+            backward();
+        }
+        if (event.code == "Space") {
+            forward();
+        }
+    });
+
+    const forward = () => {
+        nav("/countdown");
+    };
+
+    const backward = () => {
+        nav("/");
+    };
+
+    return <TopPresentation />;
 }
