@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cal+Sans&family=Mochiy+Pop+P+One&display=swap");
+
+.font-en {
+    font-family: "Mochiy Pop P One", sans-serif;
+}
+
+.font-ja {
+    font-family: "Cal Sans", sans-serif;
+}
