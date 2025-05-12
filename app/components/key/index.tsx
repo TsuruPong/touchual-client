@@ -1,11 +1,11 @@
 import * as React from "react";
 
 import { TextEn } from "../typography";
-
+import { type KeyKindType } from "./kind";
 import styles from "./Key.module.css";
 
 const Key: React.FC<{
-    size: "standard" | "regular" | "large" | "big" | "huge" | "space";
+    size: KeyKindType;
     symbol: string;
     code: string;
     isPress: boolean;
