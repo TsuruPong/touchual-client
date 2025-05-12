@@ -1,13 +1,18 @@
 import * as React from "react";
 
-import "./Typography.module.css";
+import styles from "./Typography.module.css";
 
 const BaseTypography: React.FC<{
     lang: "en" | "ja";
     children: React.ReactNode;
 }> = ({ lang, children, ...props }) => {
     return (
-        <span className={`${lang === "en" ? "font-en" : "font-ja"}`} {...props}>
+        <span
+            className={`${
+                lang === "en" ? styles["font-en"] : styles["font-ja"]
+            }`}
+            {...props}
+        >
             {children}
         </span>
     );
