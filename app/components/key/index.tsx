@@ -16,7 +16,7 @@ const Key: React.FC<{
             className={`
                 ${styles.key}
                 ${styles[`${size}Key`]}
-                ${isPress ? styles.keyActive : ""}
+                ${isPress && styles.keyActive}
             `}
         >
             <TextEn>{symbol}</TextEn>

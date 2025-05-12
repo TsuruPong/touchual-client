@@ -8,9 +8,7 @@ const BaseTypography: React.FC<{
 }> = ({ lang, children, ...props }) => {
     return (
         <span
-            className={`${
-                lang === "en" ? styles["font-en"] : styles["font-ja"]
-            }`}
+            className={`${lang === "en" ? styles.fontEn : styles.fontJa}`}
             {...props}
         >
             {children}
