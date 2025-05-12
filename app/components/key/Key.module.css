@@ -1,0 +1,44 @@
+.key {
+    padding: 0.5rem;
+    text-align: center;
+    border-radius: 0.25rem;
+    border: solid 1px;
+    background-color: #6679a3;
+    user-select: none;
+    border: solid 1px #fff;
+    color: #fff;
+}
+
+.standard-key {
+    width: 40px;
+    height: 40px;
+}
+
+.regular-key {
+    width: 50px;
+    height: 40px;
+}
+
+.large-key {
+    width: 60px;
+    height: 40px;
+}
+
+.big-key {
+    width: 80px;
+    height: 40px;
+}
+
+.huge-key {
+    width: 100px;
+    height: 40px;
+}
+
+.space-key {
+    width: 250px;
+    height: 40px;
+}
+
+.key-active {
+    background-color: #469b96;
+}
