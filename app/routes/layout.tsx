@@ -1,9 +1,19 @@
 import { Outlet } from "react-router";
+import { VirtualKeyboard } from "~/components/virtual-keyboard";
 
 export default function Layout() {
     return (
-        <div className="w-full h-full">
-            <Outlet />
-        </div>
+        <main className="w-full h-full grid grid-rows-[0.1fr,1fr,0.1fr] grid-flow-row gap-7">
+            <div />
+            <div className="h-full grid grid-rows-[1fr,0.4fr]">
+                <div className="w-full h-full">
+                    <Outlet />
+                </div>
+                <div className="flex justify-center">
+                    <VirtualKeyboard />
+                </div>
+            </div>
+            <div />
+        </main>
     );
 }
