@@ -1,10 +1,12 @@
 import { Outlet } from "react-router";
+import { Footer } from "~/components/footer";
+import { Header } from "~/components/header";
 import { VirtualKeyboard } from "~/components/virtual-keyboard";
 
 export default function Layout() {
     return (
         <main className="w-full h-full grid grid-rows-[0.1fr,1fr,0.1fr] grid-flow-row gap-7">
-            <div />
+            <Header />
             <div className="h-full grid grid-rows-[1fr,0.4fr]">
                 <div className="w-full h-full">
                     <Outlet />
@@ -13,7 +15,7 @@ export default function Layout() {
                     <VirtualKeyboard />
                 </div>
             </div>
-            <div />
+            <Footer />
         </main>
     );
 }
