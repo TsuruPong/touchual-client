@@ -13,7 +13,7 @@ export const links: Route.LinksFunction = () => [];
 
 export function Layout({ children }: { children: React.ReactNode }) {
     return (
-        <html lang="en" className="w-full h-full">
+        <html lang="ja" className="w-screen h-screen">
             <head>
                 <meta charSet="utf-8" />
                 <meta
