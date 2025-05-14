@@ -1,4 +1,5 @@
 import * as React from "react";
+import { TextEn } from "~/components/typography";
 import { TimerKind, useTimer } from "~/hooks/useTimer";
 
 export const CountDownPresentation: React.FC<{ handleTimeUp: () => void }> = ({
@@ -16,7 +17,7 @@ export const CountDownPresentation: React.FC<{ handleTimeUp: () => void }> = ({
     return (
         <div className="flex justify-center items-center h-full">
             <div className="mx-auto my-0">
-                <span>{time}</span>
+                <TextEn>{time}</TextEn>
             </div>
         </div>
     );

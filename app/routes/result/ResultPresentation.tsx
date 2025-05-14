@@ -1,4 +1,5 @@
 import * as React from "react";
+import { TextEn, TextJa } from "~/components/typography";
 
 export const ResultPresentation: React.FC<{
     wpm: number;
@@ -16,10 +17,10 @@ export const ResultPresentation: React.FC<{
                         <div className="grid grid-cols-2">
                             <div className="h-full grid grid-rows-2">
                                 <div className="w-full h-full text-6xl flex justify-center items-center">
-                                    <span>{`WPM : ${wpm}`}</span>
+                                    <TextEn>{`WPM : ${wpm}`}</TextEn>
                                 </div>
                                 <div className="w-full h-full text-6xl flex justify-center items-center">
-                                    <span>{`ACC : ${acc}%`}</span>
+                                    <TextEn>{`ACC : ${acc}%`}</TextEn>
                                 </div>
                             </div>
                             <div className="h-full grid grid-rows-2">
@@ -27,18 +28,18 @@ export const ResultPresentation: React.FC<{
                                 <div className="h-full grid grid-cols-2">
                                     <div className="h-full grid grid-rows-2">
                                         <div className="text-3xl">
-                                            <span>character</span>
+                                            <TextEn>character</TextEn>
                                         </div>
                                         <div className="text-3xl">
-                                            <span>{`${total}/${correct}/${incorrect}`}</span>
+                                            <TextEn>{`${total}/${correct}/${incorrect}`}</TextEn>
                                         </div>
                                     </div>
                                     <div className="h-full grid grid-rows-2">
                                         <div className="text-3xl">
-                                            <span>time</span>
+                                            <TextEn>time</TextEn>
                                         </div>
                                         <div className="text-3xl">
-                                            <span>{`${time}sec`}</span>
+                                            <TextEn>{`${time}sec`}</TextEn>
                                         </div>
                                     </div>
                                 </div>
@@ -46,7 +47,7 @@ export const ResultPresentation: React.FC<{
                         </div>
                     </div>
                     <div className="w-full h-1/5 flex justify-center items-end">
-                        <span>スペースキーでリスタート</span>
+                        <TextJa>スペースキーでリスタート</TextJa>
                     </div>
                 </div>
             </div>
