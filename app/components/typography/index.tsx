@@ -2,12 +2,12 @@ import * as React from "react";
 import styles from "./Typography.module.css";
 
 type TypographyProps = {
-    lang: "en" | "ja";
+    langKind: "en" | "ja";
     children: React.ReactNode;
-} & Omit<React.HTMLAttributes<HTMLSpanElement>, "lang">;
+} & React.HTMLAttributes<HTMLSpanElement>;
 
 const Typography: React.FC<TypographyProps> = ({
-    lang,
+    langKind,
     children,
     className = "",
     ...props
@@ -15,7 +15,7 @@ const Typography: React.FC<TypographyProps> = ({
     return (
         <span
             className={`${
-                lang === "en" ? styles.fontEn : styles.fontJa
+                langKind === "en" ? styles.fontEn : styles.fontJa
             } ${className}`}
             {...props}
         >
@@ -24,21 +24,23 @@ const Typography: React.FC<TypographyProps> = ({
     );
 };
 
-export const TextEn: React.FC<
-    Omit<React.HTMLAttributes<HTMLSpanElement>, "lang">
-> = ({ children, ...props }) => {
+export const TextEn: React.FC<React.HTMLAttributes<HTMLSpanElement>> = ({
+    children,
+    ...props
+}) => {
     return (
-        <Typography lang="en" {...props}>
+        <Typography langKind="en" {...props}>
             {children}
         </Typography>
     );
 };
 
-export const TextJa: React.FC<
-    Omit<React.HTMLAttributes<HTMLSpanElement>, "lang">
-> = ({ children, ...props }) => {
+export const TextJa: React.FC<React.HTMLAttributes<HTMLSpanElement>> = ({
+    children,
+    ...props
+}) => {
     return (
-        <Typography lang="ja" {...props}>
+        <Typography langKind="ja" {...props}>
             {children}
         </Typography>
     );
