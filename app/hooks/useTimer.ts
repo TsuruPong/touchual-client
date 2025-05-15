@@ -5,7 +5,7 @@ export const TimerKind = {
     SUB: (prev: number) => prev -1
 } as const;
 
-type TimerKind = typeof TimerKind[keyof typeof TimerKind];
+export type TimerKind = typeof TimerKind[keyof typeof TimerKind];
 
 export const useTimer = (kind: TimerKind, init: number) => {
     const [time, setTime] = React.useState<number>(init);
