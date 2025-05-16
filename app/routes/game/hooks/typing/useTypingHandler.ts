@@ -17,7 +17,7 @@ export const useTypingHandler = () => {
     const { updateCorrect, updateIncorrect } = useMoraUpdater();
 
     const handleTyping = React.useCallback((event: KeyboardEvent) => {
-        //event.preventDefault();
+        event.preventDefault();
         const target = moraRef.current;
         if (target.length == 0) return;
         let m: MoraWithStatus[] = [...target];
