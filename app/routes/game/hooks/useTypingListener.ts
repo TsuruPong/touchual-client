@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useTypingHandler } from './typing/useTypingHandler';
+import { useTypingHandler } from './useTypingHandler';
 import { useKeyboardInput } from '~/hooks/useKeyboardInput';
 import { useGameTransition } from './useGameTransition';
 

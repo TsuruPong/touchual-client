@@ -1,6 +1,6 @@
 import { LetterKind } from "~/components/letter/LetterKind";
 import type { MoraNodeWithStatus, MoraWithStatus } from "~/types/extends/manimani";
-import type { AutoCompleate } from "../../type/AutoCompleate";
+import type { AutoCompleate } from "../type/AutoCompleate";
 
 export const useAutoCompleate = () => {
     const makeAutoCompleate = (moras: MoraWithStatus[]): AutoCompleate[] => {

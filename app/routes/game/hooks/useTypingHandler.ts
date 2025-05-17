@@ -1,16 +1,16 @@
 import * as React from 'react';
-import { useTypingThemeStore } from '../store/useTypingThemeStore';
 import { useTypingCounter } from './useTypingCounter';
 import { useTypingValidator } from './useTypingValidator';
 import { useMoraUpdater } from './useMoraUpdator';
 import type { MoraWithStatus } from '~/types/extends/manimani';
+import { useTypingThemeStore } from './useTypingTheme';
 
 export const useTypingHandler = () => {
-    const TypingThemeStore = useTypingThemeStore();
-    const moraRef = React.useRef(TypingThemeStore.moras);
+    const store = useTypingThemeStore();
+    const moraRef = React.useRef(store.moras);
     React.useEffect(() => {
-        moraRef.current = TypingThemeStore.moras;
-    }, [TypingThemeStore.moras]);
+        moraRef.current = store.moras;
+    }, [store.moras]);
 
     const { general, present } = useTypingCounter();
     const { isTypingCorrect } = useTypingValidator();
@@ -32,7 +32,7 @@ export const useTypingHandler = () => {
             present.incorrect.increment();
             m = updateIncorrect(m);
         }
-        TypingThemeStore.updateStates({
+        store.updateStates({
             moras: m
         });
     }, []);
