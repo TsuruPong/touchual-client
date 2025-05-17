@@ -19,6 +19,7 @@ export const useTypingValidator = () => {
         }
         return targetMoraNodes.some(moranode => moranode.val == input);
     }
+
     const findTargetMoraNodeRecursively = (nodes: MoraNodeWithStatus[]): MoraNodeWithStatus[] => {
         const n = nodes.find(n => n.status == "correct");
         if (n) {
@@ -27,13 +28,16 @@ export const useTypingValidator = () => {
             return nodes;
         }
     }
+    
     const isShortConsonant = (nodes: MoraNodeWithStatus[]): boolean => {
         return nodes.find(node => node.status == "correct")?.children.length == 0;
     }
+    
     const getShortConsonantSymbol = (nodes: MoraNodeWithStatus[]): MoraNodeWithStatus => {
         const symbol = nodes.find(node => node.status == "correct");
         if (!symbol) throw new Error(`illegal parameter`);
         return symbol;
     }
+    
     return { isTypingCorrect }
 }
