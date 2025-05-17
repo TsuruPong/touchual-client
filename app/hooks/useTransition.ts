@@ -3,11 +3,9 @@ import { useNavigate } from "react-router";
 export const useTransition = () => {
     const nav = useNavigate();
 
-    const makeTransition = (): (path: string, option?: Record<string, string>) => void => {
-        return (path, option = {}) => {
-            const hasQuery = Object.keys(option).length > 0;
-
-            if (!hasQuery) {
+    const makeTransition = (path: string, option?: Record<string, string>) => {
+        return () => {
+            if (option === undefined) {
                 nav(path);
                 return;
             }
@@ -17,5 +15,5 @@ export const useTransition = () => {
         };
     };
 
-    return {makeTransition}
+    return { makeTransition };
 };
