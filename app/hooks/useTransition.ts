@@ -5,7 +5,7 @@ export const useTransition = () => {
 
     const makeTransition = (path: string, option?: Record<string, string>) => {
         return () => {
-            if (option === undefined) {
+            if (!option) {
                 nav(path);
                 return;
             }
