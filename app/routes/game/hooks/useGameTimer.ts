@@ -19,9 +19,15 @@ const useGameTimerStore = create<GameTimer>((set) => ({
 export const useGameTimer = (duration: number = 60) => {
     const { time, start, stop } = useTimer(TimerKind.SUB, duration);
     const update = useGameTimerStore((state) => state.updateTime);
+
     React.useEffect(() => {
+        start();
+    }, []);
+
+    React.useEffect(() => {
+        if (time <= 0) stop();
         update(time);
-    }, [time])
+    }, [time]);
 
     const isTimeup = time <= 0;
 
