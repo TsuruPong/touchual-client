@@ -6,9 +6,9 @@ import { useTypingThemeStore } from './useTypingTheme';
 
 export const useAutoCompleate = () => {
     const moras = useTypingThemeStore((state) => state.moras);
-    const autocompleate = React.useMemo(() => makeAutoCompleate(moras), [moras]);
-
+    
     const makeAutoCompleate = (moras: MoraWithStatus[]): AutoCompleate[] => {
+        if (!moras) return [];
         return moras.flatMap(m => {
             if (m.status == "correct") {
                 return generateCorrectOnlyAutoCompleate(m.node);
@@ -17,6 +17,8 @@ export const useAutoCompleate = () => {
             }
         });
     }
+
+    const autocompleate = React.useMemo(() => makeAutoCompleate(moras), [moras]);
 
     const generateAutoCompleateRecursively = (nodes: MoraNodeWithStatus[], result?:AutoCompleate[]): AutoCompleate[] => {
         const r: AutoCompleate[] = result ?? [];
