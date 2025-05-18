@@ -21,10 +21,6 @@ export const useGameTimer = (duration: number = 60) => {
     const update = useGameTimerStore((state) => state.updateTime);
 
     React.useEffect(() => {
-        start();
-    }, []);
-
-    React.useEffect(() => {
         if (time <= 0) stop();
         update(time);
     }, [time]);
