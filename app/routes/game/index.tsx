@@ -1,28 +1,48 @@
-import { useNavigate, type LoaderFunction } from "react-router";
+import * as React from "react";
+import { type LoaderFunction } from "react-router";
 import { InGamePresentation } from "./GamePresentation";
+import { useTypingTheme, useTypingThemeStore } from "./hooks/useTypingTheme";
+import { useTypingListener } from "./hooks/useTypingListener";
+import { useAutoCompleate } from "./hooks/useAutoCompleate";
+import { useGameTimer } from "./hooks/useGameTimer";
+import { useGameTransition } from "./hooks/useGameTransition";
+import { useKeyboardInput } from "~/hooks/useKeyboardInput";
 
 export const loader: LoaderFunction = async () => {
     return null;
 };
 
 export default function Game() {
-    const nav = useNavigate();
+    useTypingTheme();
+    useTypingListener();
+    const text = useTypingThemeStore((state) => state.text);
+    const ruby = useTypingThemeStore((state) => state.ruby);
+    const { autocompleate } = useAutoCompleate();
+    const { time, isTimeup, start, stop } = useGameTimer();
+    const { forward, backward } = useGameTransition();
 
-    const forward = () => {
-        nav("/result");
-    };
+    React.useEffect(() => {
+        start();
+    }, []);
 
-    const backward = () => {
-        nav("/");
-    };
+    React.useEffect(() => {
+        if (isTimeup) {
+            stop();
+            forward({ aaa: "aaa", bbb: "bbb", ccc: "ccc" });
+        }
+    }, [isTimeup]);
+
+    const handleKeydown = React.useCallback((event: KeyboardEvent) => {
+        if (event.code === "Escape") backward();
+    }, []);
+
+    useKeyboardInput(handleKeydown);
+
     return (
         <InGamePresentation
-            sentence={{
-                text: "隣の客はよく柿食う客だ",
-                ruby: "となりのきゃくはよくかきくうきゃくだ",
-            }}
-            autocompleates={[]}
-            time={1}
+            sentence={{ text, ruby }}
+            autocompleates={autocompleate}
+            time={time}
         />
     );
 }
