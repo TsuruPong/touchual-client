@@ -1,8 +1,13 @@
+import * as React from 'react';
 import { LetterKind } from "~/components/letter/LetterKind";
 import type { MoraNodeWithStatus, MoraWithStatus } from "~/types/extends/manimani";
 import type { AutoCompleate } from "../type/AutoCompleate";
+import { useTypingThemeStore } from './useTypingTheme';
 
 export const useAutoCompleate = () => {
+    const moras = useTypingThemeStore((state) => state.moras);
+    const autocompleate = React.useMemo(() => makeAutoCompleate(moras), [moras]);
+
     const makeAutoCompleate = (moras: MoraWithStatus[]): AutoCompleate[] => {
         return moras.flatMap(m => {
             if (m.status == "correct") {
@@ -62,5 +67,5 @@ export const useAutoCompleate = () => {
         return r;
     }
 
-    return { makeAutoCompleate }
+    return { autocompleate }
 }
