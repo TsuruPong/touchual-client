@@ -8,13 +8,8 @@ import type { MoraWithStatus } from '~/types/extends/manimani';
 import { useTypingThemeStore } from './useTypingTheme';
 
 export const useTypingListener = () => {
-    const { handleTyping } = useTypingHandler();
-    const { backward } = useGameTransition();
-    
+    const { handleTyping } = useTypingHandler();    
     const handleKeydown = React.useCallback((event: KeyboardEvent) => {
-    if (event.key == "Escape") {
-            backward();
-        }
         handleTyping(event);
     }, []);
     
