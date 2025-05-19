@@ -18,8 +18,8 @@ const GET_TYPING_THEME_QUERY = `
   }
 `;
 
-const API_ENDPOINT = process.env.API_ENDPOINT;
-if (!API_ENDPOINT) throw new Error(`API_ENDPOINT is ${API_ENDPOINT}`);
+const VITE_API_ENDPOINT = process.env.VITE_API_ENDPOINT;
+if (!VITE_API_ENDPOINT) throw new Error(`API_ENDPOINT is ${VITE_API_ENDPOINT}`);
 
 export const useFetchTypingTheme = () => {
     const fetchTypingTheme = async (
@@ -27,7 +27,7 @@ export const useFetchTypingTheme = () => {
         difficulty: number,
         id?: number
     ): Promise<TypingTheme> => {
-        const res = await fetch(API_ENDPOINT, {
+        const res = await fetch(VITE_API_ENDPOINT, {
             method: "POST",
             headers: {
             "Content-Type": "application/json"
