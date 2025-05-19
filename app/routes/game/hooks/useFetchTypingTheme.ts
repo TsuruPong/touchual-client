@@ -18,13 +18,16 @@ const GET_TYPING_THEME_QUERY = `
   }
 `;
 
+const API_ENDPOINT = process.env.API_ENDPOINT;
+if (!API_ENDPOINT) throw new Error(`API_ENDPOINT is ${API_ENDPOINT}`);
+
 export const useFetchTypingTheme = () => {
     const fetchTypingTheme = async (
         level: number,
         difficulty: number,
         id?: number
     ): Promise<TypingTheme> => {
-        const res = await fetch("/graphql", {
+        const res = await fetch(API_ENDPOINT, {
             method: "POST",
             headers: {
             "Content-Type": "application/json"
