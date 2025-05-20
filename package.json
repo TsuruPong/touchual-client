@@ -5,7 +5,7 @@
   "scripts": {
     "build": "react-router build",
     "dev": "react-router dev",
-    "zip": "bestzip client.zip build/",
+    "zip": "bestzip client.zip build/ node_modules/",
     "packing": "npm-run-all --serial build zip",
     "start": "react-router-serve ./build/server/index.js",
     "typecheck": "react-router typegen && tsc",
