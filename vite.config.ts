@@ -6,6 +6,15 @@ import tsconfigPaths from "vite-tsconfig-paths";
 export default defineConfig({
   plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
   base: "/",
+  server: {
+    proxy: {
+      "/touchual": {
+        target: "",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/touchual/, '')
+      }
+    }
+  },
   css: {
     modules: {
       localsConvention: 'dashes',
