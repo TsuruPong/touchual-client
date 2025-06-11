@@ -8,3 +8,5 @@
 *storybook.log
 
 /*.zip
+
+.env.*

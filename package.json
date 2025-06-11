@@ -3,7 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "react-router build",
+    "build-dev": "dotenv -e .env.dev react-router build",
+    "build-prod": "dotenv -e .env.prod react-router build",
     "dev": "react-router dev",
     "zip": "bestzip client.zip build/ node_modules/",
     "packing": "npm-run-all --serial build zip",
