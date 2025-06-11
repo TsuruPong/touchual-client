@@ -7,10 +7,10 @@
     "build-prod": "dotenv -e .env.prod react-router build",
     "deploy-dev": "aws s3 sync build/client s3://touchual-dev-client --delete",
     "deploy-prod": "aws s3 sync build/client s3://touchual-prod-client --delete",
-    "dev": "react-router dev",
+    "dev": "dotenv -e .env.dev react-router dev",
     "zip": "bestzip client.zip build/ node_modules/",
     "packing": "npm-run-all --serial build zip",
-    "start": "react-router-serve ./build/server/index.js",
+    "start": "dotenv -e .env.prod react-router-serve ./build/server/index.js",
     "typecheck": "react-router typegen && tsc",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
