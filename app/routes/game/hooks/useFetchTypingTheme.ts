@@ -18,7 +18,7 @@ const GET_TYPING_THEME_QUERY = `
   }
 `;
 
-const VITE_API_ENDPOINT = process.env.VITE_API_ENDPOINT;
+const VITE_API_ENDPOINT = import.meta.env.VITE_API_ENDPOINT;
 if (!VITE_API_ENDPOINT) throw new Error(`API_ENDPOINT is ${VITE_API_ENDPOINT}`);
 
 export const useFetchTypingTheme = () => {
