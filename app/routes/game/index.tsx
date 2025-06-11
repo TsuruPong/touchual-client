@@ -8,10 +8,6 @@ import { useGameTimer } from "./hooks/useGameTimer";
 import { useGameTransition } from "./hooks/useGameTransition";
 import { useKeyboardInput } from "~/hooks/useKeyboardInput";
 
-export const loader: LoaderFunction = async () => {
-    return null;
-};
-
 export default function Game() {
     useTypingTheme();
     useTypingListener();

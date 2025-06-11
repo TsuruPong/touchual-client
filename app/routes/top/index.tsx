@@ -2,10 +2,6 @@ import { useNavigate, type LoaderFunction } from "react-router";
 import { useKeyboardInput } from "~/hooks/useKeyboardInput";
 import { TopPresentation } from "./TopPresentation";
 
-export const loader: LoaderFunction = async () => {
-    return null;
-};
-
 export default function Top() {
     const nav = useNavigate();
 

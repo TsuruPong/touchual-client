@@ -2,10 +2,6 @@ import { useNavigate, useParams, type LoaderFunction } from "react-router";
 import { useKeyboardInput } from "~/hooks/useKeyboardInput";
 import { ResultPresentation } from "./ResultPresentation";
 
-export const loader: LoaderFunction = async () => {
-    return null;
-};
-
 export default function Result() {
     const nav = useNavigate();
     const { wpm, acc, total, correct, incorrect, time } = useParams();
