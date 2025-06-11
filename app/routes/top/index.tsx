@@ -1,4 +1,4 @@
-import { useNavigate, type LoaderFunction } from "react-router";
+import { useNavigate } from "react-router";
 import { useKeyboardInput } from "~/hooks/useKeyboardInput";
 import { TopPresentation } from "./TopPresentation";
 

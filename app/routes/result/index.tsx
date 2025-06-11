@@ -1,4 +1,4 @@
-import { useNavigate, useParams, type LoaderFunction } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { useKeyboardInput } from "~/hooks/useKeyboardInput";
 import { ResultPresentation } from "./ResultPresentation";
 

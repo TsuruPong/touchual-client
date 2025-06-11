@@ -1,5 +1,4 @@
 import * as React from "react";
-import { type LoaderFunction } from "react-router";
 import { InGamePresentation } from "./GamePresentation";
 import { useTypingTheme, useTypingThemeStore } from "./hooks/useTypingTheme";
 import { useTypingListener } from "./hooks/useTypingListener";
