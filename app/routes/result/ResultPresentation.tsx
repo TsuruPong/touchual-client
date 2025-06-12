@@ -5,10 +5,10 @@ export const ResultPresentation: React.FC<{
     wpm: number;
     acc: number;
     total: number;
-    correct: number;
-    incorrect: number;
+    collect: number;
+    incollect: number;
     time: number;
-}> = ({ wpm, acc, total, correct, incorrect, time }) => {
+}> = ({ wpm, acc, total, collect, incollect, time }) => {
     return (
         <div className="w-full h-full px-96 py-4">
             <div className="w-full h-full">
@@ -31,7 +31,7 @@ export const ResultPresentation: React.FC<{
                                             <TextEn>character</TextEn>
                                         </div>
                                         <div className="text-3xl">
-                                            <TextEn>{`${total}/${correct}/${incorrect}`}</TextEn>
+                                            <TextEn>{`${total}/${collect}/${incollect}`}</TextEn>
                                         </div>
                                     </div>
                                     <div className="h-full grid grid-rows-2">
