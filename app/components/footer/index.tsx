@@ -3,7 +3,7 @@ import { TextEn } from "../typography";
 
 export const Footer: React.FC = () => {
     return (
-        <div className="w-full h-[100px]">
+        <div className="h-[100px]">
             <div className="h-full flex justify-center items-end">
                 <div className="w-[75%] h-[50%] flex">
                     <div className="flex items-center">
