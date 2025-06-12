@@ -4,7 +4,7 @@ import { ResultPresentation } from "./ResultPresentation";
 
 export default function Result() {
     const nav = useNavigate();
-    const { wpm, acc, total, correct, incorrect, time } = useParams();
+    const { wpm, acc, total, collect, incollect, time } = useParams();
 
     useKeyboardInput((event: KeyboardEvent) => {
         if (event.code == "Escape") {
@@ -28,8 +28,8 @@ export default function Result() {
             wpm={parseInt(wpm ?? "0")}
             acc={parseInt(acc ?? "0")}
             total={parseInt(total ?? "0")}
-            correct={parseInt(correct ?? "0")}
-            incorrect={parseInt(incorrect ?? "0")}
+            collect={parseInt(collect ?? "0")}
+            incollect={parseInt(incollect ?? "0")}
             time={parseInt(time ?? "0")}
         />
     );
