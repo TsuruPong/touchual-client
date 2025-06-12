@@ -6,6 +6,8 @@ import { useAutoCompleate } from "./hooks/useAutoCompleate";
 import { useGameTimer } from "./hooks/useGameTimer";
 import { useGameTransition } from "./hooks/useGameTransition";
 import { useKeyboardInput } from "~/hooks/useKeyboardInput";
+import { useIndicator } from "./hooks/useIndicator";
+import { useTypingCounter } from "./hooks/useTypingCounter";
 
 export default function Game() {
     useTypingTheme();
@@ -15,6 +17,8 @@ export default function Game() {
     const { autocompleate } = useAutoCompleate();
     const { time, isTimeup, start, stop } = useGameTimer();
     const { forward, backward } = useGameTransition();
+    const { calcWpm, calcAcc, calcProgress } = useIndicator();
+    const { general } = useTypingCounter();
 
     React.useEffect(() => {
         start();
@@ -23,7 +27,16 @@ export default function Game() {
     React.useEffect(() => {
         if (isTimeup) {
             stop();
-            forward({ aaa: "aaa", bbb: "bbb", ccc: "ccc" });
+            const wpm = calcWpm(general.total.count, 60);
+            const acc = calcAcc(general.total.count, general.correct.count);
+            forward({
+                wpm: wpm.toString(),
+                acc: acc.toString(),
+                total: general.total.count.toString(),
+                collect: general.correct.count.toString(),
+                incollect: general.incorrect.count.toString(),
+                time: "60",
+            });
         }
     }, [isTimeup]);
 
