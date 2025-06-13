@@ -1,6 +1,13 @@
-import { useNavigate } from "react-router";
+import { useNavigate, type MetaArgs } from "react-router";
 import { useKeyboardInput } from "~/hooks/useKeyboardInput";
 import { CountDownPresentation } from "./CountdownPresentation";
+
+export function meta({}: MetaArgs) {
+    return [
+        { title: "Touchual-Countdown" },
+        { name: "description", content: "Countdown" },
+    ];
+}
 
 export default function Countdown() {
     const nav = useNavigate();

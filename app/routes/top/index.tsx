@@ -1,6 +1,10 @@
-import { useNavigate } from "react-router";
+import { useNavigate, type MetaArgs } from "react-router";
 import { useKeyboardInput } from "~/hooks/useKeyboardInput";
 import { TopPresentation } from "./TopPresentation";
+
+export function meta({}: MetaArgs) {
+    return [{ title: "Touchual-Top" }, { name: "description", content: "Top" }];
+}
 
 export default function Top() {
     const nav = useNavigate();

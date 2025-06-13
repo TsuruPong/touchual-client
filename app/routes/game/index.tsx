@@ -1,3 +1,4 @@
+import type { MetaArgs } from "react-router";
 import * as React from "react";
 import { InGamePresentation } from "./GamePresentation";
 import { useTypingTheme, useTypingThemeStore } from "./hooks/useTypingTheme";
@@ -8,6 +9,13 @@ import { useGameTransition } from "./hooks/useGameTransition";
 import { useKeyboardInput } from "~/hooks/useKeyboardInput";
 import { useIndicator } from "./hooks/useIndicator";
 import { useTypingCounter } from "./hooks/useTypingCounter";
+
+export function meta({}: MetaArgs) {
+    return [
+        { title: "Touchual-Game" },
+        { name: "description", content: "Game" },
+    ];
+}
 
 export default function Game() {
     useTypingTheme();

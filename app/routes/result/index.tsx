@@ -1,6 +1,13 @@
-import { useNavigate, useSearchParams } from "react-router";
+import { useNavigate, useSearchParams, type MetaArgs } from "react-router";
 import { useKeyboardInput } from "~/hooks/useKeyboardInput";
 import { ResultPresentation } from "./ResultPresentation";
+
+export function meta({}: MetaArgs) {
+    return [
+        { title: "Touchual-Result" },
+        { name: "description", content: "Result" },
+    ];
+}
 
 export default function Result() {
     const nav = useNavigate();
