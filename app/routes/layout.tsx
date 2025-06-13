@@ -5,7 +5,7 @@ import { VirtualKeyboard } from "~/components/virtual-keyboard";
 
 export default function Layout() {
     return (
-        <main className="h-full flex flex-col">
+        <main className="h-full flex flex-col gap-5">
             <Header />
             <div className="flex-1">
                 <Outlet />
