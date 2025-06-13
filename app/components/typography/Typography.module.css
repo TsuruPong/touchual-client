@@ -1,11 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cal+Sans&family=Mochiy+Pop+P+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&display=swap");
 @import "tailwindcss";
 
 .fontEn {
-    font-family: "Mochiy Pop P One", sans-serif;
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-style: normal;
 }
 
 .fontJa {
-    font-family: "Cal Sans", sans-serif;
+    font-family: "BIZ UDPGothic", sans-serif;
+    font-weight: 700;
+    font-style: normal;
 }
