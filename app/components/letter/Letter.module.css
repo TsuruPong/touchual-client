@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+.letter {
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+.empty {
+    @apply text-[#647488];
+}
+
+.white {
+    @apply text-white;
+}
+
+.incorrect {
+    @apply text-red-600;
+}
