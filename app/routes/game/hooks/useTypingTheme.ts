@@ -19,7 +19,7 @@ type TypingThemeStore = {
 
 const initialState: Omit<TypingThemeStore, "updateStates" | "reset"> = {
     id: 0,
-    level: 0,
+    level: 1,
     difficult: 0,
     text: "",
     ruby: "",
@@ -47,11 +47,11 @@ export const useTypingTheme = () => {
     const { fetchTypingTheme } = useFetchTypingTheme();
 
     const fetch = async (
-    level: number,
-    difficult: number,
-    id?: number
+        level: number,
+        difficult: number,
+        id?: number
     ): Promise<TypingTheme> => {
-    return await fetchTypingTheme(level, difficult, id);
+        return await fetchTypingTheme(level, difficult, id);
     };
 
     const fetchAndStore = async(level: number, difficult: number, id?: number) => {

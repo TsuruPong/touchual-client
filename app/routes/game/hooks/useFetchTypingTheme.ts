@@ -27,14 +27,22 @@ export const useFetchTypingTheme = () => {
         difficulty: number,
         id?: number
     ): Promise<TypingTheme> => {
+        const variables: { level: number; difficulty: number; id?: number } = {
+          level,
+          difficulty,
+        };
+        if (id) {
+          variables.id = id;
+        }
+
         const res = await fetch(VITE_API_ENDPOINT, {
             method: "POST",
             headers: {
             "Content-Type": "application/json"
             },
             body: JSON.stringify({
-            query: GET_TYPING_THEME_QUERY,
-            variables: { id, level, difficulty }
+              query: GET_TYPING_THEME_QUERY,
+              variables
             })
         });
 
