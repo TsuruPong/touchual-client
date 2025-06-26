@@ -6,37 +6,6 @@ import { useTypingThemeStore } from './useTypingTheme';
 
 export const useAutoCompleate = () => {
     const moras = useTypingThemeStore((state) => state.moras);
-    
-    const makeAutoCompleate = (moras: MoraWithStatus[]): AutoCompleate[] => {
-        if (!moras) return [];
-        return moras.flatMap(m => {
-            if (m.status == "correct") {
-                return generateCorrectOnlyAutoCompleate(m.node);
-            } else {
-                return generateAutoCompleateRecursively(m.node)
-            }
-        });
-    }
-
-    const autocompleate = React.useMemo(() => makeAutoCompleate(moras), [moras]);
-
-    const generateAutoCompleateRecursively = (nodes: MoraNodeWithStatus[], result?:AutoCompleate[]): AutoCompleate[] => {
-        const r: AutoCompleate[] = result ?? [];
-        const first = nodes.find(n => n.status == "correct" || n.status == "incorrect");
-        if (first) {
-            if (first.status == "correct") {
-                r.push({ char: first.val, kind: LetterKind.COLLECT });
-            } else {
-                r.push({ char: first.val, kind: LetterKind.INCOLLECT });
-            }
-            return generateAutoCompleateRecursively(first.children, r);
-        }
-        const shorts = findShortestPath(nodes);
-        for (const s of shorts) {
-            r.push({ char: s.val, kind: LetterKind.EMPTY });
-        }
-        return r;
-    };
 
     const findShortestPath = (nodes: MoraNodeWithStatus[]): MoraNodeWithStatus[] => {
         if (nodes.length === 0) return [];
@@ -58,6 +27,24 @@ export const useAutoCompleate = () => {
         return [];
     };
 
+    const generateAutoCompleateRecursively = (nodes: MoraNodeWithStatus[], result?:AutoCompleate[]): AutoCompleate[] => {
+        const r: AutoCompleate[] = result ?? [];
+        const first = nodes.find(n => n.status == "correct" || n.status == "incorrect");
+        if (first) {
+            if (first.status == "correct") {
+                r.push({ char: first.val, kind: LetterKind.COLLECT });
+            } else {
+                r.push({ char: first.val, kind: LetterKind.INCOLLECT });
+            }
+            return generateAutoCompleateRecursively(first.children, r);
+        }
+        const shorts = findShortestPath(nodes);
+        for (const s of shorts) {
+            r.push({ char: s.val, kind: LetterKind.EMPTY });
+        }
+        return r;
+    };
+
     const generateCorrectOnlyAutoCompleate = (nodes: MoraNodeWithStatus[], result?: AutoCompleate[]): AutoCompleate[] => {
         const r: AutoCompleate[] = result ?? [];
         const correct = nodes.find(n => n.status == "correct");
@@ -68,6 +55,19 @@ export const useAutoCompleate = () => {
 
         return r;
     }
+
+    const makeAutoCompleate = (moras: MoraWithStatus[]): AutoCompleate[] => {
+        if (!moras) return [];
+        return moras.flatMap(m => {
+            if (m.status == "correct") {
+                return generateCorrectOnlyAutoCompleate(m.node);
+            } else {
+                return generateAutoCompleateRecursively(m.node)
+            }
+        });
+    }
+
+    const autocompleate = React.useMemo(() => makeAutoCompleate(moras), [moras]);
 
     return { autocompleate }
 }
