@@ -9,10 +9,10 @@
     @apply text-[#647488];
 }
 
-.white {
+.collect {
     @apply text-white;
 }
 
-.incorrect {
+.incollect {
     @apply text-red-600;
 }
