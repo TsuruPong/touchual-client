@@ -25,8 +25,9 @@ export default function Game() {
     const { autocompleate } = useAutoCompleate();
     const { time, isTimeup, start, stop } = useGameTimer();
     const { forward, backward } = useGameTransition();
-    const { calcWpm, calcAcc, calcProgress } = useIndicator();
-    const { general } = useTypingCounter();
+    const { calcWpm, calcAcc } = useIndicator();
+    const { general, reset: resetTypingCount } = useTypingCounter();
+    const { reset: resetTypingTheme } = useTypingThemeStore();
 
     React.useEffect(() => {
         start();
@@ -46,6 +47,11 @@ export default function Game() {
                 time: "60",
             });
         }
+
+        return () => {
+            resetTypingCount();
+            resetTypingTheme();
+        };
     }, [isTimeup]);
 
     const handleKeydown = React.useCallback((event: KeyboardEvent) => {
